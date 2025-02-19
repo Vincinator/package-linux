@@ -64,7 +64,9 @@ jobs:
               git push origin "$TEMP_BRANCH:$branch"
             else
               echo "Merge conflict detected! Creating a pull request..."
-              git merge --abort
+
+              git add . 
+              git commit -m "Unresolved merge conflict."
 
               # Push the temporary branch
               git push origin "$TEMP_BRANCH"
